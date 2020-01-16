@@ -1,0 +1,109 @@
+<!Doctype html>
+<html>
+<head><title>Event Management | HOME</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+#main-container
+{
+padding-left:26%;
+padding-right:26%;
+padding-top:100px;
+padding-bottom:135px;
+background:#bfbfbf;
+background:url('/static/homeBackground.jpg') 100% 0 no-repeat fixed;
+}
+.sub-container
+{
+border:1px solid #e6e6e6;
+padding:10px;
+margin-right:50px;
+background:rgba(255,255,255,0.6);
+border-radius:8px;
+box-shadow:2px 2px 12px black;
+width:300px;
+}
+.row-element
+{
+display:-webkit-box;
+display:moz box;
+display:ms flexbox;
+display:flexbox;
+
+flex-direction:row;
+flex-align:start;
+}
+.first-column-element
+{
+-webkit-box-ordinal-group:1;
+moz box ordinal group:1;
+ms flex order:1;
+webkit order:1;
+}
+.second-column-element
+{
+-webkit-box-ordinal-group:2;
+moz box ordinal group:2;
+ms flex order:2;
+webkit order:2;
+}
+.third-column-element
+{
+-webkit-box-ordinal-group:3;
+moz box ordinal group:3;
+ms flex order:3;
+webkit order:3;
+}
+.fourth-column-element
+{
+-webkit-box-ordinal-group:4;
+moz box ordinal group:4;
+ms flex order:4;
+webkit order:4;
+}
+</style>
+<script>
+function validateRegistrationForm(theForm)
+{
+var result;
+if(theForm.password.value==theForm.confirmPassword.value) return true;
+alert("Please confirm the password correctly.");
+return false;
+}
+</script>
+</head>
+<body>
+<div id='header'>
+<center><h1 id='title'>Event Management System<h1></center>
+</div>
+
+<div id='main-container' class='row-element'>
+<div id='loginDiv' class='sub-container first-column-element'>
+<h1 id='loginTitle'>Login</h1>
+<form action='/eventManagement/login' method='Post'>
+<input class='form-control' type='email' name='username' placeholder='Username/Email' id='username' maxLength='200' required/><br/>
+<input class='form-control' type='password' name='password' placeholder='Password' id='password' maxLength='30' required/></br>
+
+<input type='reset' value='Reset' class='btn btn-warning' />
+<input type='submit' value='Login' class='btn btn-success' />
+</form>
+</div>
+<div style='width:1px;background-color:#999999;margin-right:40px;'>
+</div>
+<div id='registrationDiv' class='sub-container second-column-element'>
+<h1 id='registrationTitle'>Sign Up</h1>
+<form action='/eventManagement/register' method='Post' onsubmit='return validateRegistrationForm(this)'>
+<input class='form-control' type='email' name='username' placeholder='Username/Email' id='username' maxLength='200' required/><br/>
+<input class='form-control' type='text' name='name' id='name' placeholder='Name' maxLength='25' required /><br/>
+<input class='form-control' type='password' name='password' placeholder='Password' id='password' maxLength='30' required/></br>
+<input class='form-control' type='password' name='confirmPassword' placeholder='Confirm-password' id='confirmPassword' maxLength='30' required/></br>
+
+<input  type='reset' value='Reset' class='btn btn-warning' />
+<input type='submit' value='Register' class='btn btn-info' />
+</form>
+
+</div>
+</div>
+</body>
+</html>
